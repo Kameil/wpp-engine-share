@@ -15,3 +15,6 @@ def zip_folder_in_memory(folder_path):
 
     zip_buffer.seek(0)  # Volta para o início do buffer para envio
     return zip_buffer
+
+
+# Powered By chatgpt4o

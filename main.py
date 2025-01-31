@@ -15,16 +15,16 @@ walpapers_dir = "C:/Program Files (x86)/Steam/steamapps/workshop/content/431960/
 
 @app.route('/')
 def home():
-    with open("index.html", "r") as file:
+    with open("index.html", "r", encoding="utf-8") as file:
         return file.read()
 @app.route('/script.js')
 def script():
     with open("script.js", "r") as file:
-        return file.read()
+        return send_file("script.js")
 @app.route('/style.css')
 def style():
     with open("style.css", "r") as file:
-        return file.read()
+        return send_file("style.css")
 
 
 

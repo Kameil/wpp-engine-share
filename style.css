@@ -1,0 +1,76 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    user-select: none;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100dvh;
+    background-color: #f1f1f1;
+}
+#main {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    
+}
+
+#search {
+    position: fixed;
+    top: 30px
+}
+#searchinput {
+    height: 30px;
+    padding-left: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid gray
+}
+
+#searchinput:focus {
+    outline: none;
+}
+
+.walpapers {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#walpapper {
+    width: 500px;
+    display: flex;
+    width: 100%;
+    max-width: 600px;
+    gap: 10px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#inform {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#preview {
+    width: 100px;
+    height: 100px;
+}
+
+p {
+  max-width: 36ch;
+  white-space: nowrap; /* Impede quebra de linha */
+  overflow: hidden; /* Esconde o texto que ultrapassa */
+  text-overflow: ellipsis; /* Adiciona "..." quando o texto for cortado */
+}

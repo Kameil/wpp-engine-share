@@ -1,13 +1,13 @@
-const fs = require('fs');
-const path = require('path');
-
-const directoryPath = ''
-
-fs.readdir(directoryPath, (err, files) => {
-    if (err) {
-        return console.log('Erro ao listar arquivos: ' + err);
-    } 
-    files.forEach(file => {
-        console.log(file);
+fetch('https://example.com/api/data')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log(data);
+    })
+    .catch(error => {
+        console.error('There has been a problem with your fetch operation:', error);
     });
-});
