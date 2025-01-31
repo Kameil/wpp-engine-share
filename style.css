@@ -10,7 +10,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100dvh;
     background-color: #f1f1f1;
 }
 #main {
@@ -23,7 +22,7 @@ body {
 }
 
 #search {
-    position: fixed;
+    margin: 30px;
     top: 30px
 }
 #searchinput {
@@ -39,17 +38,16 @@ body {
 }
 
 .walpapers {
-    margin-top: 100px;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 10px;
+    
 }
 
 #walpapper {
-    width: 500px;
-    display: flex;
-    width: 100%;
     max-width: 600px;
+    display: flex;
     gap: 10px;
     padding: 20px;
     background-color: #fff;
