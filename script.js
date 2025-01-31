@@ -39,3 +39,42 @@ $(document).ready(function() {
 });
 
 
+$('#searchinput').on('input', function() {
+    var valor = $(this).val();
+    console.log(valor); 
+    
+    $.getJSON('/get_walpapers', function(data) {
+        $('#walpapers').empty();
+        $.each(data, function(id, item) {
+            if (item.title.toLowerCase().includes(valor.toLowerCase()) || 
+            item.description.toLowerCase().includes(valor.toLowerCase()) || 
+            item.type.toLowerCase().includes(valor.toLowerCase()) || valor == "") {
+                var wallpaperDiv = $('<div>', { id: 'walpapper' });
+                wallpaperDiv.attr('wpp-id', id);
+
+                var img = $('<img>', {
+                    src: 'preview/' + id + '/' + item.preview,
+                    id: 'preview'
+                });
+                wallpaperDiv.append(img);
+
+                var informDiv = $('<div>', { id: 'inform' });
+
+                var title = $('<h1>', { id: 'title', text: item.title });
+                informDiv.append(title);
+                var type = $('<p>', { id: 'type', text: item.type });
+                informDiv.append(type);
+
+                var description = $('<p>', { id: 'description', text: item.description });
+                informDiv.append(description);
+
+                wallpaperDiv.append(informDiv);
+
+                $('#walpapers').append(wallpaperDiv);
+            }
+            
+        });
+    });
+});
+
+
