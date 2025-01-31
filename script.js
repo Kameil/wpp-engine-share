@@ -1,11 +1,16 @@
 $(document).ready(function() {
+
+
+
+
+    
+    
     // Realiza a requisição GET para a URL
     $.getJSON('/get_walpapers', function(data) {
         // Itera sobre cada item no JSON
         $.each(data, function(id, item) {
             // Cria o elemento de wallpaper
-            var wallpaperDiv = $('<div>', { id: 'walpapper' });
-            wallpaperDiv.attr('wpp-id', id);
+            var wallpaperDiv = $('<div>', { id: id, class: 'walpapper' });
 
             // Cria o elemento de imagem e adiciona ao wallpaper
             var img = $('<img>', {
@@ -39,6 +44,18 @@ $(document).ready(function() {
 });
 
 
+    $(document).on('click', '.walpapper', function() { 
+        var id = this.id; // Obtém o ID da div clicada
+        console.log("ID encontrado:", id); // Teste no console
+        
+        if (id) {
+            window.location.href = "/download_walpaper/" + id;
+        } else {
+            console.log("Erro: ID não encontrado.");
+        }
+    });
+
+
 $('#searchinput').on('input', function() {
     var valor = $(this).val();
     console.log(valor); 
@@ -49,8 +66,7 @@ $('#searchinput').on('input', function() {
             if (item.title.toLowerCase().includes(valor.toLowerCase()) || 
             item.description.toLowerCase().includes(valor.toLowerCase()) || 
             item.type.toLowerCase().includes(valor.toLowerCase()) || valor == "") {
-                var wallpaperDiv = $('<div>', { id: 'walpapper' });
-                wallpaperDiv.attr('wpp-id', id);
+                var wallpaperDiv = $('<div>', { id: id, class: 'walpapper' });
 
                 var img = $('<img>', {
                     src: 'preview/' + id + '/' + item.preview,
@@ -76,5 +92,6 @@ $('#searchinput').on('input', function() {
         });
     });
 });
+
 
 
