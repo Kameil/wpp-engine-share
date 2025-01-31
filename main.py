@@ -42,7 +42,7 @@ from get_pastezip import zip_folder_in_memory
 def dowwappp(walpaper_id):
     folder_path = f"{walpapers_dir}{walpaper_id}"
     zip_buffer = zip_folder_in_memory(folder_path)
-    return send_file(zip_buffer, as_attachment=True, download_name='arquivo.zip', mimetype='application/zip')
+    return send_file(zip_buffer, as_attachment=True, download_name=f'{walpaper_id}.zip', mimetype='application/zip')
 #getpreview    
 
 @app.route("/preview/<walpaper_id>/<preview_file>")
