@@ -13,6 +13,8 @@ def get_walpappers():
                 walpparers[str(walppr_id)] = {}
             walpparers[str(walppr_id)]["preview"] = project["preview"]
             walpparers[str(walppr_id)]["title"] = project["title"]
+            walpparers[str(walppr_id)]["description"] = ""
+            walpparers[str(walppr_id)]["type"] = ""
             if project.get("description"):
                 walpparers[str(walppr_id)]["description"] = project["description"]
             if project.get("type"):

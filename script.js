@@ -5,6 +5,7 @@ $(document).ready(function() {
         $.each(data, function(id, item) {
             // Cria o elemento de wallpaper
             var wallpaperDiv = $('<div>', { id: 'walpapper' });
+            wallpaperDiv.attr('wpp-id', id);
 
             // Cria o elemento de imagem e adiciona ao wallpaper
             var img = $('<img>', {
@@ -36,3 +37,5 @@ $(document).ready(function() {
         });
     });
 });
+
+
