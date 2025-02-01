@@ -1,3 +1,7 @@
+
+
+
+
 $(document).ready(function() {
 
 
@@ -48,9 +52,10 @@ $(document).ready(function() {
         var id = this.id; // Obtém o ID da div clicada
         console.log("ID encontrado:", id); // Teste no console
         $.getJSON('/get_walpapers', function(data) {
-            const item = data[id];
+            let item = data[id];
+            let title = item.title.replace(/[&/]+/g, "");
             if (id) {
-                window.location.href = "/download_walpaper/" + id + "/" + item.title;
+                window.location.href = "/download_walpaper/" + id + "/" + title;
             } else {
                 console.log("Erro: ID não encontrado.");
             }
