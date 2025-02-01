@@ -47,12 +47,16 @@ $(document).ready(function() {
     $(document).on('click', '.walpapper', function() { 
         var id = this.id; // Obtém o ID da div clicada
         console.log("ID encontrado:", id); // Teste no console
+        $.getJSON('/get_walpapers', function(data) {
+            const item = data[id];
+            if (id) {
+                window.location.href = "/download_walpaper/" + id + "/" + item.title;
+            } else {
+                console.log("Erro: ID não encontrado.");
+            }
+            
+        })
         
-        if (id) {
-            window.location.href = "/download_walpaper/" + id;
-        } else {
-            console.log("Erro: ID não encontrado.");
-        }
     });
 
 
