@@ -46,6 +46,8 @@ body {
 }
 
 .walpapper {
+    max-width: 100%;
+    overflow: hidden;
     cursor: pointer;
     max-width: 600px;
     display: flex;

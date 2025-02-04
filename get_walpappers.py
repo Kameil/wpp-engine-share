@@ -15,10 +15,13 @@ def get_walpappers():
             walpparers[str(walppr_id)]["title"] = project["title"]
             walpparers[str(walppr_id)]["description"] = ""
             walpparers[str(walppr_id)]["type"] = ""
+            walpparers[str(walppr_id)]["tags"] = []
             if project.get("description"):
                 walpparers[str(walppr_id)]["description"] = project["description"]
             if project.get("type"):
                 walpparers[str(walppr_id)]["type"] = project["type"]
+            if project.get("tags"):
+                walpparers[str(walppr_id)]["tags"] = project["tags"]
     return walpparers
 
 if __name__ == "__main__":
