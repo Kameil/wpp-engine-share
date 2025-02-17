@@ -4,13 +4,14 @@
     box-sizing: border-box;
     font-family: sans-serif;
     user-select: none;
+    color: white;
 }
 
 body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f1f1f1;
+    background-color: #1f1f1f;
 }
 #main {
     min-height: 100dvh;
@@ -30,7 +31,8 @@ body {
     padding-left: 10px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border: 1px solid gray
+    border: 1px solid gray;
+    color: black;
 }
 
 #searchinput:focus {
@@ -53,7 +55,7 @@ body {
     display: flex;
     gap: 10px;
     padding: 20px;
-    background-color: #fff;
+    background-color: #111111;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
