@@ -1,0 +1,1 @@
+WALPAPERS_DIR = "C:/Program Files (x86)/Steam/steamapps/workshop/content/431960/"

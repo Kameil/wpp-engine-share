@@ -10,7 +10,7 @@ $(document).ready(function() {
     
     
     // Realiza a requisição GET para a URL
-    $.getJSON('/get_walpapers', function(data) {
+    $.getJSON('/get_wallpapers', function(data) {
         // Itera sobre cada item no JSON
         $.each(data, function(id, item) {
             // Cria o elemento de wallpaper
