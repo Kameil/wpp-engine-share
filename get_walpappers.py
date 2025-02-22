@@ -1,29 +1,28 @@
 import os
 import json
+from config import WALPAPERS_DIR
 
+# Cache global
+wallpapers_cache = None
 
 def get_walpappers():
-    walpapper_dir = "C:/Program Files (x86)/Steam/steamapps/workshop/content/431960/"
-    walpparers = {}
-    walpprs = [walpp for walpp in os.listdir(walpapper_dir) if "." not in walpp]
-    for walppr_id in walpprs:
-        with open(f"{walpapper_dir}{walppr_id}/project.json", "r", encoding="utf-8") as file:
-            project = json.loads(file.read())
-            if str(walppr_id) not in walpparers:
-                walpparers[str(walppr_id)] = {}
-            walpparers[str(walppr_id)]["preview"] = project["preview"]
-            walpparers[str(walppr_id)]["title"] = project["title"]
-            walpparers[str(walppr_id)]["description"] = ""
-            walpparers[str(walppr_id)]["type"] = ""
-            walpparers[str(walppr_id)]["tags"] = []
-            if project.get("description"):
-                walpparers[str(walppr_id)]["description"] = project["description"]
-            if project.get("type"):
-                walpparers[str(walppr_id)]["type"] = project["type"]
-            if project.get("tags"):
-                walpparers[str(walppr_id)]["tags"] = project["tags"]
-    return walpparers
-
-if __name__ == "__main__":
-    walprs = get_walpappers()
-    print(walprs)
+    global wallpapers_cache
+    if wallpapers_cache is None:
+        wallpapers_cache = {}
+        walpprs = [walpp for walpp in os.listdir(WALPAPERS_DIR) if "." not in walpp]
+        for wallpaper_id in walpprs:
+            try:
+                with open(f"{WALPAPERS_DIR}{wallpaper_id}/project.json", "r", encoding="utf-8") as file:
+                    project = json.load(file)
+                    wallpapers_cache[wallpaper_id] = {
+                        "preview": project.get("preview", ""),
+                        "title": project.get("title", ""),
+                        "description": project.get("description", ""),
+                        "type": project.get("type", ""),
+                        "tags": project.get("tags", [])
+                    }
+            except FileNotFoundError:
+                print(f"Arquivo project.json não encontrado para {wallpaper_id}")
+            except json.JSONDecodeError:
+                print(f"Erro ao decodificar JSON para {wallpaper_id}")
+    return wallpapers_cache
