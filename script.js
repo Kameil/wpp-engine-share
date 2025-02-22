@@ -51,11 +51,11 @@ $(document).ready(function() {
     $(document).on('click', '.walpapper', function() { 
         var id = this.id; // Obtém o ID da div clicada
         console.log("ID encontrado:", id); // Teste no console
-        $.getJSON('/get_walpapers', function(data) {
+        $.getJSON('/get_wallpapers', function(data) {
             let item = data[id];
             let title = item.title.replace(/[&/]+/g, "");
             if (id) {
-                window.location.href = "/download_walpaper/" + id + "/" + title;
+                window.location.href = "/download_wallpaper/" + id + "/" + title;
             } else {
                 console.log("Erro: ID não encontrado.");
             }
@@ -69,7 +69,7 @@ $('#searchinput').on('input', function() {
     var valor = $(this).val();
     console.log(valor); 
     
-    $.getJSON('/get_walpapers', function(data) {
+    $.getJSON('/get_wallpapers', function(data) {
         $('#walpapers').empty();
         $.each(data, function(id, item) {
             if (item.title.toLowerCase().includes(valor.toLowerCase()) || 
